@@ -32,7 +32,7 @@ def predict_hourly_irradiance(
     scaler_x,
     scaler_y,
     feature_columns: list[str],
-    sza_cutoff: float = None,
+    sza_cutoff: float | None = None,
 ) -> pd.DataFrame:
     """
     Returns weather_df (sorted by hour) with two added columns:

@@ -18,14 +18,14 @@ class Settings:
     HOST: str = os.getenv("HOST", "0.0.0.0")
     PORT: int = int(os.getenv("PORT", "8000"))
 
-    MODEL_LOAD_PATH: str = os.getenv("MODEL_LOAD_PATH", str("./ml_artifacts"))
+    MODEL_LOAD_PATH: str = os.getenv("MODEL_LOAD_PATH", str("./static/ml_artifacts"))
     MODEL_FILENAME: str = os.getenv("MODEL_FILENAME", "anfis_solar_model.pkl")
 
     SCALER_X_PATH: str = os.getenv(
-        "SCALER_X_PATH", str(BASE_DIR / "ml_artifacts" / "scaler_X.pkl")
+        "SCALER_X_PATH", str(BASE_DIR / "static" / "ml_artifacts" / "scaler_X.pkl")
     )
     SCALER_Y_PATH: str = os.getenv(
-        "SCALER_Y_PATH", str(BASE_DIR / "ml_artifacts" / "scaler_y.pkl")
+        "SCALER_Y_PATH", str(BASE_DIR / "static" / "ml_artifacts" / "scaler_y.pkl")
     )
 
 
