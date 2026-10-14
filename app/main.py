@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from app.config import settings
 from app.database import create_db_and_tables
@@ -58,6 +59,9 @@ app.include_router(ws.router)
 def health_check():
     return {"status": "ok"}
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/static", StaticFiles(directory=settings.STATIC_DIR), name="static")
 
 
+@app.get("/", include_in_schema=False)
+async def index():
+    return FileResponse(settings.INDEX_FILE)

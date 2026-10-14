@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent  # solar-irradiance-api/
+BASE_DIR: Path = Path(__file__).resolve().parent.parent  # solar-irradiance-api/
 load_dotenv()
 
 
@@ -18,14 +18,22 @@ class Settings:
     HOST: str = os.getenv("HOST", "0.0.0.0")
     PORT: int = int(os.getenv("PORT", "8000"))
 
-    MODEL_LOAD_PATH: str = os.getenv("MODEL_LOAD_PATH", str("./static/ml_artifacts"))
+    MODEL_LOAD_PATH: str = os.getenv("MODEL_LOAD_PATH", str(BASE_DIR / "app"/ "static" / "ml_artifacts"))
     MODEL_FILENAME: str = os.getenv("MODEL_FILENAME", "anfis_solar_model.pkl")
 
     SCALER_X_PATH: str = os.getenv(
-        "SCALER_X_PATH", str(BASE_DIR / "static" / "ml_artifacts" / "scaler_X.pkl")
+        "SCALER_X_PATH", str(BASE_DIR / "app" / "static" / "ml_artifacts" / "scaler_X.pkl")
     )
     SCALER_Y_PATH: str = os.getenv(
-        "SCALER_Y_PATH", str(BASE_DIR / "static" / "ml_artifacts" / "scaler_y.pkl")
+        "SCALER_Y_PATH", str(BASE_DIR / "app" / "static" / "ml_artifacts" / "scaler_y.pkl")
+    )
+
+    STATIC_DIR: str = os.getenv(
+        "STATIC_DIR", str(BASE_DIR / "app" / "static")
+    )
+
+    INDEX_FILE: str = os.getenv(
+        "INDEX_FILE", str(BASE_DIR / "app" / "static" / "index.html")
     )
 
 

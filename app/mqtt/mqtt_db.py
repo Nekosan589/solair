@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 from sqlmodel import select
 
 from app.models.mqtt_models import LatestReading, SensorReading
-from mqtt.mqtt_manager import MqttManager
+from app.mqtt.mqtt_manager import MqttManager
 from app.database import get_session_enginge
 
 logger = logging.getLogger("mqtt_db_listener")
