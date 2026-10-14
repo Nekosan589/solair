@@ -1,0 +1,601 @@
+/* ---- LIGHT STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+/* ---- REGULAR STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+/* ---- MEDIUM STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+/* ---- BOLD STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+/* ---- BLACK (EXTRA BOLD) STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---- LIGHT STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+/* ---- REGULAR STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+/* ---- MEDIUM STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+/* ---- BOLD STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+/* ---- BLACK (EXTRA BOLD) STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Core configuration variables */
+.toggle-switch {
+  --switch-size: 1.5rem; /* Changing this scales the entire component responsively */
+  --width: calc(var(--switch-size) * 2);
+  --height: calc(var(--switch-size) * 1.1);
+  --thumb-size: calc(var(--height) - 0.2rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: var(--switch-size);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* Hide the native checkbox visually but keep it accessible for screen readers & keyboard focus */
+.toggle-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The track (outer slider container) */
+.toggle-switch .slider {
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  background-color: #ccc;
+  border-radius: var(--height);
+  transition: background-color 0.3s ease;
+}
+
+/* The thumb (the rolling ball/circle) */
+.toggle-switch .slider::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  bottom: 0.1rem;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked states (active track & moved thumb) */
+.toggle-switch input:checked + .slider {
+  background-color: #4CAF50; /* Green active state */
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(calc(var(--width) - var(--thumb-size) - 0.2rem));
+}
+
+/* Accessibility: Keyboard focus visual ring */
+.toggle-switch input:focus-visible + .slider {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Respect user preferences regarding animations */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-switch .slider,
+  .toggle-switch .slider::before {
+    transition: none;
+  }
+}
+.grid-container {
+  display: grid;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  background-color: #f7c155;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+.label {
+  text-align: left;
+  width: 100%;
+  margin-left: 1.5rem;
+}
+
+#heading {
+  padding: 1px;
+  width: 15%;
+  border-radius: 10px;
+  margin: 10px 10px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.view {
+  display: none;
+}
+
+/* Active view styling container */
+.active-view {
+  display: block;
+}
+
+.current, nav ul li a:hover {
+  text-decoration: underline;
+  color: #f7c155;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  background-color: #000000;
+  padding: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul .nav_icon {
+  display: none;
+  width: 10px;
+}
+nav ul li {
+  margin: 0 7vw;
+  display: flex;
+  align-items: center;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: large;
+  font-weight: bold;
+}
+.horizontal-stack, .vertical-stack {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.vertical-stack {
+  flex-direction: column;
+}
+
+.icon {
+  width: 175px;
+}
+
+.icon-chip {
+  height: 3em;
+}
+
+nav {
+  grid-area: nav;
+}
+
+#high-priority {
+  grid-area: high;
+}
+
+#hourly-solar-irradiance {
+  grid-area: graph;
+}
+
+#low-priority {
+  grid-area: low;
+}
+
+#info {
+  grid-area: info;
+}
+
+/* ---- LIGHT STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+/* ---- REGULAR STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+/* ---- MEDIUM STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+/* ---- BOLD STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+/* ---- BLACK (EXTRA BOLD) STYLES ---- */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  height: 75px;
+}
+
+.nav-icon {
+  display: none;
+}
+
+#home-layout {
+  grid-gap: 1em;
+  grid-template-columns: 0.5fr 1fr 3fr 1fr 0.5fr;
+  grid-template-areas: ". high graph low ." ". info info info .";
+}
+
+#info {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.outline, #appliances .info-card h1, #appliances #high-priority-heading, #appliances #low-priority-heading, #info, #low-priority, #high-priority {
+  color: #fff;
+  -webkit-text-stroke: 1.5px #000;
+  paint-order: stroke fill; /* Keeps the outline from shrinking your text text */
+}
+
+#high-priority {
+  background-color: #3a505f;
+}
+
+#high-priority h4, #low-priority h4 {
+  font-size: xx-large;
+}
+
+#low-priority {
+  color: #fff;
+}
+
+#info {
+  color: #fff;
+}
+
+#hourly-solar-irradiance {
+  padding: 0;
+}
+#hourly-solar-irradiance .vertical-stack {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#hourly-solar-irradiance .horizontal-stack, #hourly-solar-irradiance .vertical-stack {
+  width: 100%;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+#hourly-solar-irradiance .container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#appliances canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#appliances .appliance-icon img {
+  width: 2.5rem;
+}
+#appliances #appliances {
+  margin: 0 10%;
+  justify-content: space-around;
+}
+#appliances #high-priority-wrapper, #appliances #low-priority-wrapper {
+  width: 45%;
+}
+#appliances .switch {
+  width: 160px;
+}
+#appliances #low-priority-appliances {
+  align-items: flex-start;
+}
+#appliances #high-priority-heading, #appliances #low-priority-heading {
+  width: 100%;
+}
+#appliances #high-priority-heading .container, #appliances #low-priority-heading .container {
+  padding: 5px;
+  margin-right: 35%;
+}
+#appliances #high-priority-heading h1, #appliances #low-priority-heading h1 {
+  font-size: x-large;
+  font-weight: bold;
+}
+#appliances .info-card {
+  margin: 10px 0px;
+}
+#appliances .info-card .container {
+  width: auto;
+  background-color: #fff;
+  padding: 10px;
+}
+#appliances .info-card {
+  justify-content: left;
+}
+#appliances .info-card h1 {
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: xx-large;
+}
+#appliances .total-consumption-card {
+  justify-content: right;
+}
+#appliances .total-consumption-card .right {
+  margin-right: 1.5rem;
+  font-size: 4rem;
+}
+#appliances .total-consumption-card .container {
+  font-size: 2.5rem;
+}
+
+.stat-card {
+  background: #33495e;
+  border: 1px solid #4a6278;
+  border-radius: 14px;
+  padding: 16px 18px;
+  color: #fff;
+  font-family: sans-serif;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+.stat-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.stat-card__title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.stat-card__title .highlight {
+  color: #f5c563;
+}
+
+.stat-card__date {
+  font-size: 12px;
+  font-weight: 700;
+  color: #cfd8e0;
+  white-space: nowrap;
+}
+
+.stat-card__bar {
+  display: flex;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stat-card__segment {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.stat-card__segment--primary {
+  background: #f5c563;
+  color: #1a1a1a;
+  justify-content: flex-start;
+  padding-left: 14px;
+}
+
+.stat-card__segment--secondary {
+  background: #ffffff;
+  color: #1a1a1a;
+  justify-content: flex-end;
+  padding-right: 14px;
+}
+
+#expenses canvas {
+  display: block;
+  width: 500px;
+  height: 100%;
+}
+#expenses #expenses-wrapper {
+  margin: 0 10%;
+  justify-content: space-around;
+}
+#expenses #expenses-heading {
+  justify-content: space-around;
+}
+#expenses #chart-wrapper {
+  padding: 10px;
+}
+
+h1 {
+  font-width: 900;
+}/*# sourceMappingURL=main.css.map */

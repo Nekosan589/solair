@@ -1,0 +1,28 @@
+@import "fonts.scss";
+
+$color-scheme:(
+    "primary-base": #f7c155,
+    "primary-light": #fad376,
+    "secondary-base": #3a505f,
+    "secondary-light": #8399a6,
+    "secondary-lightest": #b1bdc1,
+
+    "text-light": #ffffff,
+    "text-dark": #000000,
+
+    "border-primary": #000000,
+    
+    "nav-color": #000000
+);
+
+$sizes:(
+    "nav-spacing": 7vw
+);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+};

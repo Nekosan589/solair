@@ -1,0 +1,322 @@
+@import "root.scss";
+@import "switch.scss";
+
+.grid-container{
+    display: grid;
+};
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    background-color: map-get($color-scheme, primary-base);
+    border: 2px solid map-get($color-scheme, border-primary);
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+};
+
+.label{
+    text-align: left;
+    width: 100%;
+    margin-left: 1.5rem;
+}
+
+#heading{
+    padding: 1px;
+    width: 15%;
+    border-radius: 10px;
+    margin: 10px 10px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.view { display: none; }
+        
+/* Active view styling container */
+.active-view { display: block}
+
+.current{
+    text-decoration: underline;
+    color: map-get($color-scheme, primary-base)
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    background-color: map-get($color-scheme, nav-color);
+    padding: 0.5em;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .nav_icon{
+            display: none;
+            width: 10px;
+        }
+        li{
+            margin: 0 map-get($sizes, nav-spacing);
+            display: flex;
+            align-items: center;
+            
+
+            a{
+                text-decoration: none;
+                color: map-get($color-scheme, text-light);
+                font-size: large;
+                font-weight: bold;
+            }
+
+            a:hover{
+                @extend .current
+            }
+        }
+    }
+}
+
+.horizontal-stack{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem
+}
+
+.vertical-stack{
+    @extend .horizontal-stack;
+    flex-direction: column;
+}
+
+.icon{
+    width: 175px;
+}
+
+.icon-chip{
+    height: 3em;
+}
+
+@import "layouts/layouts.scss";
+
+// HOME PAGE
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+.outline{
+    color: #fff;
+    -webkit-text-stroke: 1.5px #000;
+    paint-order: stroke fill; /* Keeps the outline from shrinking your text text */
+}
+
+#high-priority{
+    background-color: map-get($color-scheme, secondary-base);
+    @extend .outline
+}
+
+#high-priority h4, #low-priority h4{
+    font-size: xx-large;
+}
+
+#low-priority{
+    color: #fff;
+    @extend .outline
+}
+
+#info{
+    color: #fff;
+    @extend .outline
+}
+
+#hourly-solar-irradiance{
+    padding: 0;
+    .vertical-stack{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
+    .horizontal-stack{
+        width: 100%;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .container{
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+// APPLIANCES PAGE
+#appliances {
+    canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+    .appliance-icon{
+        img{
+            width: 2.5rem;
+        }
+    }
+    #appliances{
+        margin: 0 10%;
+        justify-content: space-around;
+    }
+
+    #high-priority-wrapper, #low-priority-wrapper{
+        width: 45%;
+    }
+
+    .switch{
+        width: 160px;
+    }
+
+    #low-priority-appliances{
+        align-items: flex-start;
+    }
+
+    #high-priority-heading, #low-priority-heading{
+        width: 100%;
+        .container{
+            padding: 5px;
+            margin-right: 35%;
+        }
+
+        h1{
+            font-size: x-large;
+            font-weight: bold;
+        }
+        @extend .outline
+
+    }
+
+    .info-card{
+        margin: 10px 0px;
+        .container{
+            width: auto;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        justify-content: left;
+        h1{
+            margin-left: 1.5rem;
+            font-weight: bold;
+            font-size: xx-large;
+            @extend .outline
+        }
+    }
+
+    .total-consumption-card{
+        justify-content: right;
+
+        .right{
+            margin-right: 1.5rem;
+            font-size: 4rem;
+        }
+
+        .container{
+            font-size: 2.5rem;
+        }
+    }
+}
+
+  .stat-card {
+    background: #33495e;
+    border: 1px solid #4a6278;
+    border-radius: 14px;
+    padding: 16px 18px;
+    color: #fff;
+    font-family: sans-serif;
+    max-width: 480px;
+    margin-bottom: 16px;
+  }
+
+  .stat-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+
+  .stat-card__title {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .stat-card__title .highlight {
+    color: #f5c563;
+  }
+
+  .stat-card__date {
+    font-size: 12px;
+    font-weight: 700;
+    color: #cfd8e0;
+    white-space: nowrap;
+  }
+
+  .stat-card__bar {
+    display: flex;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .stat-card__segment {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .stat-card__segment--primary {
+    background: #f5c563;
+    color: #1a1a1a;
+    justify-content: flex-start;
+    padding-left: 14px;
+  }
+
+  .stat-card__segment--secondary {
+    background: #ffffff;
+    color: #1a1a1a;
+    justify-content: flex-end;
+    padding-right: 14px;
+  }
+
+#expenses{
+        canvas {
+    display: block;
+    width: 500px;
+    height: 100%;
+  }
+    #expenses-wrapper{
+        margin: 0 10%;
+        justify-content: space-around;
+    }
+
+    #expenses-heading{
+        justify-content: space-around;
+    }
+
+    #chart-wrapper{
+       padding: 10px
+    }
+}
+
+@import "all.scss";

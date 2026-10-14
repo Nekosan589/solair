@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLAIR</title>
+    <link rel="stylesheet" href="./css/main.css" class="css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><img class="icon" src="../static/assets/LOGO.png"></li>
+            <li><a href="#home"><img class="nav-icon" src="../static/assets/Energy.png"><p>HOME</p></a></li>
+            <li><a href="#appliances"><img class="nav-icon" src="../static/assets/Energy.png"><p>APPLIANCES</p></a></li>
+            <li><a href="#expenses"><img class="nav-icon" src="../static/assets/Energy.png"><p>EXPENSES</p></a></li>
+        </ul>
+    </nav>
+
+    <!-- Pages -->
+
+    <!-- HOME PAGE -->
+    <div id="home" class="view">
+        <div class="center">
+            <div class="container" id="heading">
+                General Dashboard
+            </div>
+        </div>
+        
+        <div class="grid-container" id="home-layout">
+            <div class="container vertical-stack" id="high-priority">
+                <h1>HIGH PRIORITY</h1>
+                <img class="icon" src="../static/assets/Solar Light.png">
+                <h4>SOLAR</h4>
+            </div>
+
+            <div id="hourly-solar-irradiance">
+                <div class="vertical-stack">
+                    <div class="horizontal-stack">
+                        <h1>Solar Irradiance</h1>
+                        <div class="dropdown-container">
+                            <select class="custom-select" id="daySelect">
+                                <option value="today">Today</option>
+                                <option value="tomorrow">Tomorrow</option>
+                            </select>
+                        </div>
+                    </div>   
+                    <canvas id="irradianceChart" height="auto"></canvas>
+                </div>         
+            </div>
+
+            <div class="container vertical-stack" id="low-priority">
+                <h1>LOW PRIORITY</h1>
+                <img class="icon" src="../static/assets/Solar Dark.png">
+                <h4>SOLAR</h4>
+            </div>
+
+            <div class="grid-container" id="info">
+                <div class="container horizontal-stack info-card">
+                    <img src="../static/assets/Battery.png" class="icon-chip">
+                    <div class="label"><h1>SOLAR BATTERY</h1></div>
+                    <h1 class="value" id="battery-percentage">100%</h1>
+                </div>
+                <div class="container horizontal-stack info-card">
+                    <img src="../static/assets/Grid.png" class="icon-chip">
+                    <div class="label"><h1>GRID</h1></div>
+                    <h1 class="value" id="solar-consumption">7Wh</h1>
+                </div>
+                <div class="container horizontal-stack info-card">
+                    <img src="../static/assets/Solar Dark.png" class="icon-chip">
+                    <div class="label"><h1>SOLAR</h1></div>
+                    <h1 class="value" id="grid-consumption">23Wh</h1>
+                </div>
+                <div class="container horizontal-stack info-card">
+                    <img src="../static/assets/Energy.png" class="icon-chip">
+                    <div class="label"><h1>TOTAL</h1></div>
+                    <h1 class="value" id="total-consumption">30Wh</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLIANCES PAGE -->
+    <div id="appliances" class="view">
+        <div class="center">
+            <div class="container" id="heading">
+                Connected Devices
+            </div>
+        </div>
+
+        <div class="horizontal-stack" id="appliances">
+            <div class="grid-container" id="low-priority-wrapper">
+                <div class="horizontal-stack" id="low-priority-heading">
+                    <div class="container" id="low-priority-label">
+                        <h1>HIGH PRIORITY</h1>
+                    </div>
+                    <!-- Rounded switch -->
+                    <label class="toggle-switch" id="high-priority-toggle">
+                        <input type="checkbox" role="switch" checked>
+                        <span class="slider"></span>
+                    </label>   
+                </div>
+                <div class="grid-container appliances-layout">
+                    <div class="vertical-stack" id="low-priority-appliances">
+                        <div class="container horizontal-stack info-card">
+                            <div class="container appliance-icon">
+                                <img src="../static/assets/Fridge.png">
+                            </div>
+                            <h1>Refrigerator</h1>
+                        </div>
+
+                        <div class="container horizontal-stack info-card">
+                            <div class="container appliance-icon">
+                                <img src="../static/assets/Router.png">
+                            </div>
+                            <h1>Wi-Fi Router</h1>
+                        </div>
+
+                        <div class="container horizontal-stack info-card">
+                            <div class="container appliance-icon">
+                                <img src="../static/assets/Light.png">
+                            </div>
+                            <h1>Lights</h1>
+                        </div>
+
+                        <div class="container horizontal-stack info-card total-consumption-card">
+                            <div class="right">
+                                <h1>Overall consumption</h1>
+                            </div>
+                            <div class="container">
+                                <p id="high-priority-consumption">
+                                    15 Wh
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-container" id="low-priority-wrapper">
+                <div class="horizontal-stack" id="low-priority-heading">
+                    <div class="container" id="low-priority-label">
+                        <h1>LOW PRIORITY</h1>
+                    </div>
+                    <!-- Rounded switch -->
+                    <label class="toggle-switch" id="low-priority-toggle" checked>
+                        <input type="checkbox" role="switch">
+                        <span class="slider"></span>
+                    </label>   
+                </div>
+                <div class="grid-container appliances-layout">
+                    <div class="vertical-stack" id="low-priority-appliances">
+                        <div class="container horizontal-stack info-card">
+                            <div class="container appliance-icon">
+                                <img src="../static/assets/Fan.png">
+                            </div>
+                            <h1>Fan</h1>
+                        </div>
+
+                        <div class="container horizontal-stack info-card">
+                            <div class="container appliance-icon">
+                                <img src="../static/assets/Light.png">
+                            </div>
+                            <h1>Lights</h1>
+                        </div>
+
+                        <div class="container horizontal-stack info-card total-consumption-card">
+                            <div class="right">
+                                <h1>Overall consumption</h1>
+                            </div>
+                            <div class="container">
+                                <p id="high-priority-consumption">
+                                    15 Wh
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- EXPENSES PAGE -->
+    <div id="expenses" class="view">
+        <div class="center">
+            <div class="container" id="heading">
+                Total Expense
+            </div>
+        </div>
+
+        <div class="horizontal-stack" id="expenses-wrapper">
+            <div class="vertical-stack" id="chart_wrapper">
+                <div class="horizontal-stack" id="expenses-heading">
+                        <h1>Expenses</h1>
+                        <div class="dropdown-container">
+                            <select class="custom-select" id="expensesDaySelect">
+                                <option value="today">Today</option>
+                                <option value="tomorrow">This Week</option>
+                            </select>
+                        </div>
+                </div>
+                <canvas id="energyChart" height="300"></canvas>
+            </div>
+            <div class="vertical-stack" id="expenses-info-wrapper">
+                <div class="stat-card" id="spentCard">
+  <div class="stat-card__header">
+    <div class="stat-card__title">
+      You have spent <span class="highlight" id="spentAmount">₱3,456.00</span> this month.
+    </div>
+    <div class="stat-card__date">AUG 2026</div>
+  </div>
+  <div class="stat-card__bar">
+    <div class="stat-card__segment stat-card__segment--primary" id="spentPrimary" style="width: 89.10%;">89.10%</div>
+    <div class="stat-card__segment stat-card__segment--secondary" id="spentSecondary" style="width: 10.90%;">10.90%</div>
+  </div>
+</div>
+
+<div class="stat-card" id="savedCard">
+  <div class="stat-card__header">
+    <div class="stat-card__title">
+      You have saved <span class="highlight" id="savedAmount">₱1,234.00</span> this month.
+    </div>
+    <div class="stat-card__date">AUG 2026</div>
+  </div>
+  <div class="stat-card__bar">
+    <div class="stat-card__segment stat-card__segment--primary" id="savedPrimary" style="width: 36.87%;">36.87%</div>
+    <div class="stat-card__segment stat-card__segment--secondary" id="savedSecondary" style="width: 63.13%;">63.13%</div>
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/scripts/main.js"></script>
+</body>
+</html>

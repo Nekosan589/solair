@@ -1,0 +1,23 @@
+@import "root-layout.scss";
+@import "../root.scss";
+
+    nav{
+        height: 75px;;
+    }
+    .nav-icon{
+        display: none;
+    }
+    #home-layout{
+        grid-gap: 1em;
+        grid-template-columns: 0.5fr 1fr 3fr 1fr 0.5fr;
+        grid-template-areas: 
+        ". high graph low ."
+        ". info info info ."
+
+    }
+    #info{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: none;
+    }
+
+

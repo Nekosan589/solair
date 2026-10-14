@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure JS One-Page Site</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        nav a { margin-right: 15px; text-decoration: none; color: blue; font-weight: bold; }
+        main { margin-top: 20px; padding: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation links use hashes (#) to prevent page reloads -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Content injection container -->
+    <main id="app">Loading...</main>
+
+    <!-- Link your pure JS file -->
+    <script>
+        // 1. Define your page content
+const routes = {
+    '#home': `
+        <h1>Welcome Home</h1>
+        <p>This is the landing page of your pure JavaScript single-page website.</p>
+    `,
+    '#about': `
+        <h1>About Us</h1>
+        <p>We built this entirely without frameworks like React or Vue!</p>
+    `,
+    '#contact': `
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out via email at contact@example.com.</p>
+    `
+};
+
+// 2. Router function to update the view
+function router() {
+    const contentDiv = document.getElementById('app');
+    
+    // Get current hash from URL, default to #home if empty
+    const currentHash = window.location.hash || '#home';
+    
+    // Fetch content for the route, or show a 404 page if not found
+    const pageContent = routes[currentHash] || `<h1>404</h1><p>Page Not Found</p>`;
+    
+    // Inject content into the container
+    contentDiv.innerHTML = pageContent;
+}
+
+// 3. Listen for URL changes and page loads
+window.addEventListener('hashchange', router);
+window.addEventListener('DOMContentLoaded', router);
+
+    </script>
+</body>
+</html>
