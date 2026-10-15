@@ -1,4 +1,4 @@
-from app.schemas.sensor_reading import SensorReadingBase
+from webapp.app.schemas.sensor_reading import SensorReadingBase
 from sqlmodel import Field as SQLField
 
 class SensorReading(SensorReadingBase, table=True):

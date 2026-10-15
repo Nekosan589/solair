@@ -4,13 +4,13 @@ from zoneinfo import ZoneInfo
 from fastapi import APIRouter, Query, HTTPException
 from sqlmodel import select, func
 
-from app.database import SessionDep
-from app.enums import DateFilter, ForecastDay
-from app.models.sensor_reading import SensorReading
-from app.schemas.sensor_reading import SensorReadingRead, SensorReadingUpdate, SensorReadingCreate, ConsumptionSummary
-from app.schemas.irradiance import IrradianceForecast, HourlyIrradiance
-from app.services.irradiance_service import get_irradiance
-from app.utils.dates import get_date_range
+from webapp.app.database import SessionDep
+from webapp.app.enums import DateFilter, ForecastDay
+from webapp.app.models.sensor_reading import SensorReading
+from webapp.app.schemas.sensor_reading import SensorReadingRead, SensorReadingUpdate, SensorReadingCreate, ConsumptionSummary
+from webapp.app.schemas.irradiance import IrradianceForecast, HourlyIrradiance
+from webapp.app.services.irradiance_service import get_irradiance
+from webapp.app.utils.dates import get_date_range
 
 router = APIRouter(prefix="/api")
 

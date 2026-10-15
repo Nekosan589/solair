@@ -9,11 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-from app.config import settings
-from app.database import create_db_and_tables
-from app.services.ws_manager import manager
-from app.routers import api, ws
-from app.ml.artifacts import load_artifacts
+from webapp.app.config import settings
+from webapp.app.database import create_db_and_tables
+from webapp.app.services.ws_manager import manager
+from webapp.app.routers import ws
+from webapp.app.ml.artifacts import load_artifacts
+from webapp.app.routers import api
 
 async def push_metrics():
     """TEST"""

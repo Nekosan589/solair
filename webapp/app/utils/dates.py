@@ -1,7 +1,7 @@
 from datetime import date, timedelta, datetime, timezone
 from zoneinfo import ZoneInfo
 
-from app.enums import ForecastDay, DateFilter
+from webapp.app.enums import ForecastDay, DateFilter
 
 
 def get_forecast_date(day: ForecastDay) -> str:

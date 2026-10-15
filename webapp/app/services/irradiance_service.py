@@ -21,13 +21,13 @@ from datetime import date, datetime, timedelta
 
 from sqlmodel import Session, delete, select
 
-from app.config import settings
-from app.enums import ForecastDay
-from app.ml.artifacts import get_model, get_scaler_x, get_scaler_y
-from app.models.irradiance import IrradianceReading
-from app.services.prediction import predict_hourly_irradiance
-from app.services.weather import get_hourly_weather
-from app.utils.dates import get_ph_target_date, ph_day_utc_window
+from webapp.app.config import settings
+from webapp.app.enums import ForecastDay
+from webapp.app.ml.artifacts import get_model, get_scaler_x, get_scaler_y
+from webapp.app.models.irradiance import IrradianceReading
+from webapp.app.services.prediction import predict_hourly_irradiance
+from webapp.app.services.weather import get_hourly_weather
+from webapp.app.utils.dates import get_ph_target_date, ph_day_utc_window
 
 
 def _is_fresh(
@@ -45,7 +45,7 @@ def _is_fresh(
             IrradianceReading.hour >= window_start,
             IrradianceReading.hour < window_end,
         )
-        .order_by(IrradianceReading.computed_at.desc())
+        .order_by(IrradianceReading.computed_at.desc()) # type: ignore
     )
     latest = session.exec(statement).first()
 

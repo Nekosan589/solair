@@ -23,7 +23,7 @@ regardless of weather).
 import numpy as np
 import pandas as pd
 
-from app.config import settings
+from webapp.app.config import settings
 
 
 def predict_hourly_irradiance(

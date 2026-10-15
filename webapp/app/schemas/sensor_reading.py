@@ -1,7 +1,7 @@
 from typing import Optional
 
 from sqlmodel import SQLModel, Field as SQLField
-from app.enums import DateFilter
+from webapp.app.enums import DateFilter
 from datetime import datetime
 
 class SensorReadingBase(SQLModel):

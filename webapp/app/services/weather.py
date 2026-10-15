@@ -29,7 +29,7 @@ import pvlib.clearsky
 import requests
 from pvlib.solarposition import get_solarposition
 
-from app.config import settings
+from webapp.app.config import settings
 
 
 def _add_cyclical_time_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -98,7 +98,7 @@ def get_hourly_weather(
     df = df[(df["hour"] >= start_utc) & (df["hour"] < end_utc)].reset_index(drop=True)
 
     solar_pos = get_solarposition(time=df["hour"], latitude=latitude, longitude=longitude)
-    df["SZA"] = solar_pos["zenith"].to_numpy()
+    df["SZA"] = solar_pos["zenith"].to_numpy() # type: ignore
 
     # Clear-sky GHI via the Haurwitz model — needs only zenith angle,
     # matching how the training script derives GHI_clearsky. Clipped to

@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import Depends
 from sqlmodel import create_engine, SQLModel, Session
 
-from app.config import settings
+from webapp.app.config import settings
 
 connect_args = {"check_same_thread": False}
 engine = create_engine(settings.DATABASE_URL, connect_args=connect_args)
