@@ -1,3 +1,0 @@
-from mqtt.mqtt_manager import MqttManager
-
-...
